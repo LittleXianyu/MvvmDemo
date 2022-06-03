@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="androidx.databinding.ObservableList"/>
+        <variable
+            name="model1"
+            type="com.example.mvvmdemo.jetpack.databinding.model.Model1" />
+        <variable
+            name="model3"
+            type="com.example.mvvmdemo.jetpack.databinding.model.Model3" />
+
+        <variable
+            name="list"
+            type="ObservableList&lt;String&gt;"/>
+        <variable
+            name="index"
+            type="int"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.example.mvvmdemo.MainActivity">
+<!--        相同的属性以XML中属性定义顺序执行 databinding -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model1.name}"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{list[index],default=xx}"
+            />
+<!--        // 双向绑定@={}-->
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={model3.name}" />
+<!--        // 双向绑定的结果-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model3.name}"
+            android:textColor='@{"红色"}'/>
+
+
+        <com.example.mvvmdemo.jetpack.databinding.BindingMethodTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BindingMethod"
+            app:toast1="@{model3.name}"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/tolist"
+            android:layout_height="50dp"
+             android:layout_width="100dp"
+            android:text="to list"
+            />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/toRefresh"
+            android:layout_height="50dp"
+            android:layout_width="100dp"
+            android:text="to refresh"
+            />
+    </LinearLayout>
+</layout>
