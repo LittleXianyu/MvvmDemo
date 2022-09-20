@@ -9,6 +9,9 @@
     <uses-feature android:name="feature:android.hardware.sensor.stepdetector" />
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--必须的权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MainApplication"
@@ -18,13 +21,14 @@
         android:resizeableActivity="false"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/Theme.MvvmDemo"
+
         android:usesCleartextTraffic="true">
         <activity
             android:name=".refresh.RefreshActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

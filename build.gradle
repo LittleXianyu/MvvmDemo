@@ -8,17 +8,21 @@ buildscript {
 
     repositories {
         //* aliyun mirror
+
         maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter' }
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
         maven { url "https://jitpack.io" }
+        maven { url 'http://nexus.htsc.com/repository/maven-public/' }
+
         //*/
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+//        classpath "org.jacoco:org.jacoco.core:0.8.7"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -26,6 +30,8 @@ buildscript {
 }
 
 allprojects {
+    apply plugin: 'jacoco'
+
     repositories {
         //* aliyun mirror
         maven { url 'http://maven.aliyun.com/nexus/content/repositories/google' }

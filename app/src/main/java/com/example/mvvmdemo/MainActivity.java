@@ -81,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
         });
         ChoreographerFPS.computeFps();
         LooperMonitor.register(listener);
+
+        mainBinding.report.setOnClickListener(view->{
+                ReportUtil.generateCoverageReport();
+        });
     }
 
     @Override

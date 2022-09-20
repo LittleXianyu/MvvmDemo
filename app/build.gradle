@@ -1,15 +1,24 @@
 plugins {
     id 'com.android.application'
+    id 'jacoco'
+}
+
+jacoco {
+    // 指定jacoco版本
+    toolVersion '0.8.7'
 }
 apply plugin: 'kotlin-android'
 //apply plugin: 'kotlin-kapt'
+apply from: 'jacoco.gradle'
+
+
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     defaultConfig {
         applicationId "com.example.mvvmdemo"
         minSdkVersion 23
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -20,6 +29,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            testCoverageEnabled true
         }
     }
     compileOptions {
@@ -34,6 +46,8 @@ android {
         // for view binding :
          viewBinding = true
     }
+
+
 
 }
 
