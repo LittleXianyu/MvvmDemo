@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         mainBinding.report.setOnClickListener(view->{
                 ReportUtil.generateCoverageReport();
         });
+        Log.d("xianyu","test onCreate");
     }
 
     @Override
